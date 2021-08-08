@@ -1,2 +1,9 @@
 ---
    - hosts: all
+     become: yes
+     user: majix
+     tasks:
+        - name: please create user
+          user:
+            name: piju
+            state: present
