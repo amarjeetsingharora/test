@@ -4,5 +4,6 @@
      become: yes
      user: majix
         - name: Install httpd
-          yum: httpd
-          stat: latest
+          yum:
+            name: httpd
+            stat: latest
