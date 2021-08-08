@@ -1,0 +1,8 @@
+---
+   - hosts: all
+     tasks:
+     become: yes
+     user: majix
+        - name: Install httpd
+          yum: httpd
+          stat: latest
