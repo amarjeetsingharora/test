@@ -1,0 +1,15 @@
+template_version: 0.3
+create_credentials: true
+organization: Default
+credentials: # this are the credentials that should be created
+  cred1: # This is the key of the object. See it like a unique primary key like in database. Technically it can have any value. The key will be also added to the description of the object for later reference.
+      account_name: SCMcredential # Logical name of the account used. If you add the type of credential it is easier to find.
+      roles: # the role the team should get for this object. Values: admin, use, read
+        - read
+      params: # this are params supported by the module -> https://docs.ansible.com/ansible/latest/collections/awx/awx/tower_credential_module.html#ansible-collections-awx-awx-tower-credential-module
+        type: Source Control # Common values: Source Control, Machine, Ansible Tower, Vault, etc. -> all credential types see /api/v2/credential_types/
+        inputs: # You can add or remove the inputs paramaters. Which parameters are needed depend on the input type, see -> all credential types see /api/v2/credential_types/
+          username: myusername 
+          password: "{{ vault_scmcredential }}" # use here the credentials from the vault. Always prefix with vault_
+          ssh_key_data: null 
+          ssh_key_unlock: null
