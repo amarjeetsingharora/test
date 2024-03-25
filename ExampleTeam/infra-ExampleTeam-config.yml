@@ -9,7 +9,7 @@ credentials: # this are the credentials that should be created
       params: # this are params supported by the module -> https://docs.ansible.com/ansible/latest/collections/awx/awx/tower_credential_module.html#ansible-collections-awx-awx-tower-credential-module
         type: Source Control # Common values: Source Control, Machine, Ansible Tower, Vault, etc. -> all credential types see /api/v2/credential_types/
         inputs: # You can add or remove the inputs paramaters. Which parameters are needed depend on the input type, see -> all credential types see /api/v2/credential_types/
-          username: myusername 
+          username: "{{ vault_scmcredential }}" 
           password: "{{ vault_scmcredential }}" # use here the credentials from the vault. Always prefix with vault_
           ssh_key_data: null 
           ssh_key_unlock: null
